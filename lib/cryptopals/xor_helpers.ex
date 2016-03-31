@@ -1,5 +1,5 @@
 
-defmodule Cryptopals.FixedXor do
+defmodule Cryptopals.XorHelpers do
   use Bitwise
 
   def xor(x, y) do

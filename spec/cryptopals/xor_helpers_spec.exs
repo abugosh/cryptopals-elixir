@@ -1,4 +1,4 @@
-defmodule Cryptopals.FixedXorSpec do
+defmodule Cryptopals.XorHelpersSpec do
   use ESpec
   import Cryptopals.Convert
 
@@ -6,7 +6,7 @@ defmodule Cryptopals.FixedXorSpec do
   let :hex_2, do: "686974207468652062756c6c277320657965"
   let :sol, do: "746865206b696420646f6e277420706c6179"
 
-  subject(Cryptopals.FixedXor)
+  subject(Cryptopals.XorHelpers)
 
   context ".xor" do
     it "should xor the binarys" do
