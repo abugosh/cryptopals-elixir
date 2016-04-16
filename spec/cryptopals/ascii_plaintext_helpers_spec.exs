@@ -10,6 +10,7 @@ defmodule Cryptopals.AsciiPlaintextHelpersSpec do
     let :caps, do: MapSet.new(0x41..0x5a)
     let :smalls, do: MapSet.new(0x61..0x7a)
     let :nums, do: MapSet.new(0x30..0x39)
+    let :punctuation, do: MapSet.new(' !"\',.?@')
 
     def check_score(enum, score) do
       Enum.each(enum, fn char ->
@@ -34,11 +35,16 @@ defmodule Cryptopals.AsciiPlaintextHelpersSpec do
       nums |> check_score(4)
     end
 
+    it "should score punctuation as 1" do
+      punctuation |> check_score(4)
+    end
+
     it "should score other printable ascii as .75" do
       printables
       |> MapSet.difference(caps)
       |> MapSet.difference(smalls)
       |> MapSet.difference(nums)
+      |> MapSet.difference(punctuation)
       |> check_score(3)
     end
   end
@@ -53,7 +59,7 @@ defmodule Cryptopals.AsciiPlaintextHelpersSpec do
     end
 
     it "should score a mixed text string in between 1 and 0" do
-      expect(subject.score('       ')) |> to(eq 0.75)
+      expect(subject.score('{{{}}}')) |> to(eq 0.75)
     end
 
     it "should normalize the score based on length" do
