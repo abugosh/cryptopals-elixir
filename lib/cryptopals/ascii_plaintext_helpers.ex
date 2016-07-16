@@ -11,7 +11,7 @@ defmodule Cryptopals.AsciiPlaintextHelpers do
       MapSet.member?(@text, char) ->
         4
       MapSet.member?(@printables, char) ->
-        3
+        2
       true ->
         0
     end

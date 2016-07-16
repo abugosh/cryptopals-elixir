@@ -45,7 +45,7 @@ defmodule Cryptopals.AsciiPlaintextHelpersSpec do
       |> MapSet.difference(smalls)
       |> MapSet.difference(nums)
       |> MapSet.difference(punctuation)
-      |> check_score(3)
+      |> check_score(2)
     end
   end
 
@@ -59,7 +59,7 @@ defmodule Cryptopals.AsciiPlaintextHelpersSpec do
     end
 
     it "should score a mixed text string in between 1 and 0" do
-      expect(subject.score('{{{}}}')) |> to(eq 0.75)
+      expect(subject.score('{{{}}}')) |> to(eq 0.50)
     end
 
     it "should normalize the score based on length" do
