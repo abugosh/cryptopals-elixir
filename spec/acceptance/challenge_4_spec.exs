@@ -21,7 +21,6 @@ defmodule Cryptopals.Challenge4Spec do
   it "should find and decrypt the cipher text in the file" do
     {_, _, plain_text} = (ctxt
                           |> Enum.flat_map(&score_cipher_text/1)
-                          #|> Enum.flat_map(fn(x) -> x end)
                           |> Enum.max_by(fn ({_, score, _}) -> score end))
 
     expect(plain_text) |> to(eq ptxt)
