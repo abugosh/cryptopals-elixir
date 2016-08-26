@@ -1,4 +1,4 @@
-require IEx
+
 defmodule Cryptopals.Challenge4Spec do
   use ESpec
 
