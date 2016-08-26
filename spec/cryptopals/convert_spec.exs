@@ -31,4 +31,14 @@ defmodule Cryptopals.ConvertSpec do
       expect(subject.binary_to_hex(binary)) |> to(eq hex)
     end
   end
+
+  context ".base64_file_to_binary" do
+    it "should read in the file and convert it to binary" do
+      expect(subject.base64_file_to_binary("spec/cryptopals/support/base64.txt")) |> to(eq 'Hello world, cryptopals')
+    end
+
+    it "should read in the file and cope with new lines well" do
+      expect(subject.base64_file_to_binary("spec/cryptopals/support/base64_newlines.txt")) |> to(eq 'Hello world, cryptopals, now with more new lines')
+    end
+  end
 end
