@@ -1,4 +1,4 @@
-require IEx
+
 defmodule Cryptopals.Challenge8Spec do
   use ESpec
   alias Cryptopals.AesHelpers
