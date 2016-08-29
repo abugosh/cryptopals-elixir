@@ -12,4 +12,8 @@ defmodule Cryptopals.Challenge10Spec do
   it "should decrypt the ctxt using the key" do
     expect(Cryptopals.AesCbc.decrypt(ctxt, key, ivec)) |> to(eq ptxt)
   end
+
+  it "should encrypt the ptxt using the key" do
+    expect(Cryptopals.AesCbc.encrypt(ptxt, key, ivec)) |> to(eq ctxt)
+  end
 end
