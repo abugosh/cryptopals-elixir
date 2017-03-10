@@ -30,15 +30,15 @@ defmodule Cryptopals.Challenge6Spec do
   end
 
   it "should find the key size" do
-    {size, _} = find_key_size(ctxt)
-    expect(size) |> to(eq key_size)
+    {size, _} = find_key_size(ctxt())
+    expect(size) |> to(eq key_size())
   end
 
   it "should find and decrypt the cipher text in the file" do
-    {size, _} = find_key_size(ctxt)
+    {size, _} = find_key_size(ctxt())
 
     full_key = (1..size)
-    |> Enum.map(fn(x) -> Enum.take_every(Enum.drop(ctxt, x - 1), size) end)
+    |> Enum.map(fn(x) -> Enum.take_every(Enum.drop(ctxt(), x - 1), size) end)
     |> Enum.map(fn(txt) ->
       {key, _, _} = (txt
                     |> score_cipher_text
@@ -46,7 +46,7 @@ defmodule Cryptopals.Challenge6Spec do
       key
     end)
 
-    expect(full_key) |> to(eq the_key)
-    expect(Cryptopals.XorCipher.encode(ctxt, full_key)) |> to(eq ptxt)
+    expect(full_key) |> to(eq the_key())
+    expect(Cryptopals.XorCipher.encode(ctxt(), full_key)) |> to(eq ptxt())
   end
 end

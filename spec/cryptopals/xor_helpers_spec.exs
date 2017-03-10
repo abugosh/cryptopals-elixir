@@ -11,7 +11,7 @@ defmodule Cryptopals.XorHelpersSpec do
 
   context ".xor" do
     it "should xor the binarys" do
-      expect(subject.xor(hex_to_binary(hex_1), hex_to_binary(hex_2))) |> to(eq hex_to_binary(sol))
+      expect(subject().xor(hex_to_binary(hex_1()), hex_to_binary(hex_2()))) |> to(eq hex_to_binary(sol()))
     end
   end
 end

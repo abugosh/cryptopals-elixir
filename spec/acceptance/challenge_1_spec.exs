@@ -6,10 +6,10 @@ defmodule Cryptopals.Challenge1Spec do
   let :base64, do: "SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t"
 
   it "should convert the hex input to the base64 output" do
-    converted_text = (hex
+    converted_text = (hex()
                       |> Cryptopals.Convert.hex_to_binary
                       |> Cryptopals.Convert.binary_to_base64)
 
-    expect(converted_text) |> to(eq base64)
+    expect(converted_text) |> to(eq base64())
   end
 end

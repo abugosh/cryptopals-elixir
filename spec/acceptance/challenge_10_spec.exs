@@ -6,14 +6,14 @@ defmodule Cryptopals.Challenge10Spec do
   let :ivec, do: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
   let :ctxt, do: Cryptopals.Convert.base64_file_to_binary("spec/acceptance/support/challenge_10.txt")
-  let :ptxt, do: :crypto.block_decrypt(:aes_cbc128, key, ivec |> :erlang.list_to_binary, ctxt) |> :erlang.binary_to_list
+  let :ptxt, do: :crypto.block_decrypt(:aes_cbc128, key(), ivec() |> :erlang.list_to_binary, ctxt()) |> :erlang.binary_to_list
 
 
   it "should decrypt the ctxt using the key" do
-    expect(Cryptopals.AesCbc.decrypt(ctxt, key, ivec)) |> to(eq ptxt)
+    expect(Cryptopals.AesCbc.decrypt(ctxt(), key(), ivec())) |> to(eq ptxt())
   end
 
   it "should encrypt the ptxt using the key" do
-    expect(Cryptopals.AesCbc.encrypt(ptxt, key, ivec)) |> to(eq ctxt)
+    expect(Cryptopals.AesCbc.encrypt(ptxt(), key(), ivec())) |> to(eq ctxt())
   end
 end

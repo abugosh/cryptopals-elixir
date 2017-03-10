@@ -8,6 +8,6 @@ defmodule Cryptopals.Challenge5Spec do
 
 
   it "should xor the key with the ptxt to get the ctxt" do
-    expect(Cryptopals.XorCipher.encode(ptxt, key)) |> to(eq ctxt)
+    expect(Cryptopals.XorCipher.encode(ptxt(), key())) |> to(eq ctxt())
   end
 end

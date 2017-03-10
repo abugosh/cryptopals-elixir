@@ -7,9 +7,9 @@ defmodule Cryptopals.Challenge3Spec do
 
   it "should find the key" do
     {found_key, _} = ((0..255)
-    |> Enum.map(&({&1, Cryptopals.XorCipher.encode(ctxt, [&1]) |> Cryptopals.AsciiPlaintextHelpers.score}))
+    |> Enum.map(&({&1, Cryptopals.XorCipher.encode(ctxt(), [&1]) |> Cryptopals.AsciiPlaintextHelpers.score}))
     |> Enum.max_by(fn ({_, score}) -> score end))
 
-    expect(found_key) |> to(eq key)
+    expect(found_key) |> to(eq key())
   end
 end

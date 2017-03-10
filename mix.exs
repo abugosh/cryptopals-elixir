@@ -4,11 +4,11 @@ defmodule Cryptopals.Mixfile do
   def project do
     [app: :cryptopals,
      version: "0.0.1",
-     elixir: "~> 1.3",
+     elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      preferred_cli_env: [espec: :test],
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application
@@ -28,6 +28,6 @@ defmodule Cryptopals.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:espec, "~> 1.0.1", only: :test}]
+    [{:espec, "~> 1.3", only: :test}]
   end
 end

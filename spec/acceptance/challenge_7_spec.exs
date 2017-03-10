@@ -8,6 +8,6 @@ defmodule Cryptopals.Challenge7Spec do
   let :key, do: 'YELLOW SUBMARINE'
 
   it "should decrypt the ctxt using the key" do
-    expect(:crypto.block_decrypt(:aes_ecb, key, ctxt)) |> to(eq ptxt)
+    expect(:crypto.block_decrypt(:aes_ecb, key(), ctxt())) |> to(eq ptxt())
   end
 end
