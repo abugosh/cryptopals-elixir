@@ -8,4 +8,8 @@ defmodule Cryptopals.AesHelpers do
     |> Enum.map(fn {k, v} -> {k, Enum.count(v)} end)
     |> Map.new
   end
+
+  def random_key(length \\ 16) do
+    :crypto.strong_rand_bytes(length) |> :erlang.binary_to_list
+  end
 end

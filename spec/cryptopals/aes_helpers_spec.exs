@@ -18,4 +18,20 @@ defmodule Cryptopals.AesHelpersSpec do
                                                                         :crypto.block_encrypt(:aes_ecb, key(), '0987654321098765') |> :erlang.binary_to_list => 5})
     end
   end
+
+  context ".random_key" do
+    it "returns 16 bytes by default" do
+      expect(Enum.count(subject().random_key)) |> to(eq 16)
+    end
+
+    it "also takes a length argument" do
+      expect(Enum.count(subject().random_key(1337))) |> to(eq 1337)
+    end
+
+    it "gets the bytes from the crypto library" do
+      allow :crypto |> to(accept :strong_rand_bytes, fn(_) -> "" end)
+      subject().random_key
+      expect(:crypto) |> to(accepted :strong_rand_bytes)
+    end
+  end
 end
