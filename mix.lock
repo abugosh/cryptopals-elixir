@@ -1,2 +1,2 @@
-%{"espec": {:hex, :espec, "1.3.2", "20c96d580df671860bd8e7de1523be9ead34bbdca4912689a54f295add56d683", [:mix], [{:meck, "0.8.4", [hex: :meck, optional: false]}]},
-  "meck": {:hex, :meck, "0.8.4", "59ca1cd971372aa223138efcf9b29475bde299e1953046a0c727184790ab1520", [:make, :rebar], []}}
+%{"espec": {:hex, :espec, "1.4.6", "9ac809d2a7ce64b9dbb468a517fe0c00c0464e4aeb918709ad2ba68a0a0d6536", [:mix], [{:meck, "0.8.7", [hex: :meck, repo: "hexpm", optional: false]}], "hexpm"},
+  "meck": {:hex, :meck, "0.8.7", "ebad16ca23f685b07aed3bc011efff65fbaf28881a8adf925428ef5472d390ee", [:rebar3], [], "hexpm"}}
