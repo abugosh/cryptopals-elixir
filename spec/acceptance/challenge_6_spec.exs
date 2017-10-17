@@ -3,7 +3,7 @@ defmodule Cryptopals.Challenge6Spec do
   use ESpec
 
   let :ctxt, do: Cryptopals.Convert.base64_file_to_binary("spec/acceptance/support/challenge_6.txt")
-  let :ptxt, do: File.read!("spec/acceptance/support/challenge_6_plain.txt") |> String.to_char_list
+  let :ptxt, do: File.read!("spec/acceptance/support/challenge_6_plain.txt") |> String.to_charlist
 
   let :key_size, do: 29
   let :the_key, do: 'Terminator X: Bring the noise'
