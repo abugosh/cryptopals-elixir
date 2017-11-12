@@ -1,7 +1,7 @@
 
 defmodule Cryptopals.Challenge8Spec do
   use ESpec
-  alias Cryptopals.AesHelpers
+  alias Cryptopals.DataHelpers
   alias Cryptopals.Convert
 
   let :ctxt do
@@ -14,7 +14,7 @@ defmodule Cryptopals.Challenge8Spec do
 
   it "should look for repeating blocks in the ctxt" do
     {ecb_encrypted, _} = ctxt()
-    |> Enum.map(fn x -> {x, AesHelpers.count_blocks(x) |> Map.keys |> Enum.count} end)
+    |> Enum.map(fn x -> {x, DataHelpers.count_blocks(x) |> Map.keys |> Enum.count} end)
     |> Enum.max_by(fn {_, v} -> -v end)
 
     expect(Convert.binary_to_hex(ecb_encrypted)) |> to(eq target())

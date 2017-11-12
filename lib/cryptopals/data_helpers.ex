@@ -1,5 +1,4 @@
-
-defmodule Cryptopals.AesHelpers do
+defmodule Cryptopals.DataHelpers do
 
   def count_blocks(ctxt) do
     ctxt

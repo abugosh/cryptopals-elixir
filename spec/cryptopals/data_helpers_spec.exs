@@ -1,12 +1,11 @@
-
-defmodule Cryptopals.AesHelpersSpec do
+defmodule Cryptopals.DataHelpersSpec do
   use ESpec
 
   let :key, do: "YELLOW SUBMARINE"
   let :repeating_ctxt, do: :crypto.block_encrypt(:aes_ecb, key(), '1234567890123456' |> Stream.cycle |> Enum.take(160)) |> :erlang.binary_to_list
   let :other_repeating_ctxt, do: :crypto.block_encrypt(:aes_ecb, key(), '12345678901234560987654321098765' |> Stream.cycle |> Enum.take(160)) |> :erlang.binary_to_list
 
-  subject(Cryptopals.AesHelpers)
+  subject(Cryptopals.DataHelpers)
 
   context ".count_blocks" do
     it "should count 10 blocks in repeating ctxt" do
