@@ -1,8 +1,7 @@
-
-defmodule Cryptopals.AsciiPlaintextHelpersSpec do
+defmodule Cryptopals.Utils.AsciiPlaintextSpec do
   use ESpec
 
-  subject(Cryptopals.AsciiPlaintextHelpers)
+  subject(Cryptopals.Utils.AsciiPlaintext)
 
   context ".score_byte" do
     let :characters, do: MapSet.new(0..255)

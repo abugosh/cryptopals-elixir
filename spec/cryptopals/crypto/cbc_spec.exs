@@ -1,5 +1,5 @@
 
-defmodule Cryptopals.AesCbcSpec do
+defmodule Cryptopals.Crypto.CbcSpec do
   use ESpec
 
   let :key, do: 'YELLOW SUBMARINE'
@@ -8,7 +8,7 @@ defmodule Cryptopals.AesCbcSpec do
   let :null_block, do: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   let :encrypted_null_block, do: :crypto.block_encrypt(:aes_ecb, key(), null_block()) |> :erlang.binary_to_list
 
-  subject(Cryptopals.AesCbc)
+  subject(Cryptopals.Crypto.Cbc)
 
   context ".decrypt" do
     it "will apply aes_ecb to first block with null ivec" do

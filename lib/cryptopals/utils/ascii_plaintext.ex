@@ -1,5 +1,4 @@
-
-defmodule Cryptopals.AsciiPlaintextHelpers do
+defmodule Cryptopals.Utils.AsciiPlaintext do
   @printables MapSet.new(0x20..0x7e)
   @text (0x41..0x5a
          |> MapSet.new
@@ -18,6 +17,9 @@ defmodule Cryptopals.AsciiPlaintextHelpers do
     end
   end
 
+  @doc """
+  Applies a score to the supplied text to test if it falls in the ASCII range.
+  """
   def score(text) do
     raw = text
           |> Enum.map(&score_byte/1)

@@ -1,10 +1,9 @@
-
-defmodule Cryptopals.HammingSpec do
+defmodule Cryptopals.Utils.HammingSpec do
   use ESpec
   let :bin1, do: 'this is a test'
   let :bin2, do: 'wokka wokka!!!'
 
-  subject(Cryptopals.Hamming)
+  subject(Cryptopals.Utils.Hamming)
 
   context ".distance" do
     it "should have a distance of 0 if the strings are equal" do

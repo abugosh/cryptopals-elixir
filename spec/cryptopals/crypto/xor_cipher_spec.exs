@@ -1,8 +1,8 @@
 
-defmodule Cryptopals.XorCipherSpec do
+defmodule Cryptopals.Crypto.XorCipherSpec do
   use ESpec
 
-  subject(Cryptopals.XorCipher)
+  subject(Cryptopals.Crypto.XorCipher)
 
   context ".encode" do
     it "should xor equal length key and cipher text" do

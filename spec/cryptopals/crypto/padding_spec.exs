@@ -1,8 +1,8 @@
 
-defmodule Cryptopals.Pkcs7HelpersSpec do
+defmodule Cryptopals.Crypto.PaddingSpec do
   use ESpec
 
-  subject(Cryptopals.Pkcs7Helpers)
+  subject(Cryptopals.Crypto.Padding)
 
   context ".pad_block" do
     it "should do nothing if the txt matches the block size" do

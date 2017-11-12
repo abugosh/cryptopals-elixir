@@ -1,6 +1,6 @@
 
-defmodule Cryptopals.AesCbc do
-  import Cryptopals.XorHelpers
+defmodule Cryptopals.Crypto.Cbc do
+  import Cryptopals.Utils.Data
 
   def decrypt(ctxt, key, ivec) do
     data = ctxt |> Enum.chunk(16)
