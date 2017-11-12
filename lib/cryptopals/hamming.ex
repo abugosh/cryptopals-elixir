@@ -2,12 +2,15 @@
 defmodule Cryptopals.Hamming do
   use Bitwise
 
+  alias Cryptopals.XorHelpers
+
   def distance(bin1, bin2) when bin1 == bin2 do
     0
   end
 
   def distance(bin1, bin2) do
-    Cryptopals.XorHelpers.xor(bin1, bin2)
+    bin1
+    |> XorHelpers.xor(bin2)
     |> Enum.map(&sum_byte_bits/1)
     |> Enum.sum
   end

@@ -25,7 +25,8 @@ defmodule Cryptopals.Convert do
   end
 
   def base64_file_to_binary(file_name) do
-    File.read!(file_name)
+    file_name
+    |> File.read!
     |> String.replace("\n", "")
     |> Base.decode64!
     |> :erlang.binary_to_list

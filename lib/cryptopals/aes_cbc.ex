@@ -8,7 +8,10 @@ defmodule Cryptopals.AesCbc do
     data
     |> Enum.zip([ivec] ++ data)
     |> Enum.flat_map(fn {cur, prev} ->
-      :crypto.block_decrypt(:aes_ecb, key, cur) |> :erlang.binary_to_list |> xor(prev)
+      :aes_ecb
+      |> :crypto.block_decrypt(key, cur)
+      |> :erlang.binary_to_list
+      |> xor(prev)
     end)
   end
 
@@ -16,7 +19,10 @@ defmodule Cryptopals.AesCbc do
     {encrypted, _} = ptxt
     |> Enum.chunk(16)
     |> Enum.reduce({[], ivec}, fn (x, {ctxt, prev}) ->
-      block = :crypto.block_encrypt(:aes_ecb, key, xor(x, prev)) |> :erlang.binary_to_list
+      block = :aes_ecb
+              |> :crypto.block_encrypt(key, xor(x, prev))
+              |> :erlang.binary_to_list
+
       {ctxt ++ block, block}
     end)
 

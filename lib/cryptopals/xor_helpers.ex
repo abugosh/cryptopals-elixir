@@ -3,7 +3,8 @@ defmodule Cryptopals.XorHelpers do
   use Bitwise
 
   def xor(x, y) do
-    Enum.zip(x, y)
+    x
+    |> Enum.zip(y)
     |> Enum.map(fn {a, b} -> a ^^^ b end)
   end
 end

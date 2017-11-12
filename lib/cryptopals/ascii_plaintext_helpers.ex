@@ -1,10 +1,11 @@
 
 defmodule Cryptopals.AsciiPlaintextHelpers do
   @printables MapSet.new(0x20..0x7e)
-  @text (MapSet.new(0x41..0x5a)
-        |> MapSet.union(MapSet.new(0x61..0x7a))
-        |> MapSet.union(MapSet.new(0x30..0x39))
-        |> MapSet.union(MapSet.new(' !"\',.?@')))
+  @text (0x41..0x5a
+         |> MapSet.new
+         |> MapSet.union(MapSet.new(0x61..0x7a))
+         |> MapSet.union(MapSet.new(0x30..0x39))
+         |> MapSet.union(MapSet.new(' !"\',.?@')))
 
   def score_byte(char) do
     cond do

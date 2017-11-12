@@ -28,6 +28,9 @@ defmodule Cryptopals.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:espec, "~> 1.4", only: :test}]
+    [
+      {:espec, "~> 1.4", only: :test},
+      {:credo, "~> 0.8", only: :dev, runtime: false},
+    ]
   end
 end
