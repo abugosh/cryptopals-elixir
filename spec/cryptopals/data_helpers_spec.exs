@@ -18,18 +18,16 @@ defmodule Cryptopals.DataHelpersSpec do
     end
   end
 
-  context ".random_key" do
-    it "returns 16 bytes by default" do
-      expect(Enum.count(subject().random_key)) |> to(eq 16)
-    end
-
-    it "also takes a length argument" do
-      expect(Enum.count(subject().random_key(1337))) |> to(eq 1337)
+  context ".random_bytes" do
+    it "returns a length of bytes" do
+      expect(Enum.count(subject().random_bytes(16))) |> to(eq 16)
+      expect(Enum.count(subject().random_bytes(256))) |> to(eq 256)
+      expect(Enum.count(subject().random_bytes(1337))) |> to(eq 1337)
     end
 
     it "gets the bytes from the crypto library" do
       allow :crypto |> to(accept :strong_rand_bytes, fn(_) -> "" end)
-      subject().random_key
+      subject().random_bytes(1)
       expect(:crypto) |> to(accepted :strong_rand_bytes)
     end
   end

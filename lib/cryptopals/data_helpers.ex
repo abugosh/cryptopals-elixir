@@ -8,7 +8,7 @@ defmodule Cryptopals.DataHelpers do
     |> Map.new
   end
 
-  def random_key(len \\ 16) do
+  def random_bytes(len) do
     len
     |> :crypto.strong_rand_bytes
     |> :erlang.binary_to_list
