@@ -2,19 +2,17 @@
 defmodule Cryptopals.Crypto.PaddingSpec do
   use ESpec
 
-  subject(Cryptopals.Crypto.Padding)
-
   context ".pad_block" do
-    it "should do nothing if the txt matches the block size" do
-      expect(subject().pad_block('hello', 5)) |> to(eq 'hello')
+    it "does nothing if the txt matches the block size" do
+      expect(described_module().pad_block('hello', 5)) |> to(eq 'hello')
     end
 
-    it "should add bytes up to the block size if the txt is smaller" do
-      expect(subject().pad_block('hello', 10)) |> to(eq 'hello' ++ [4, 4, 4, 4, 4])
+    it "pads the text with bytes of the length of the padding" do
+      expect(described_module().pad_block('hello', 6)) |> to(eq 'hello' ++ [0x01])
     end
 
-    it "should allow you to specify the padding byte" do
-      expect(subject().pad_block('hello', 10, 0xff)) |> to(eq 'hello' ++ [0xff, 0xff, 0xff, 0xff, 0xff])
+    it "adds bytes up to the block size if the txt is smaller" do
+      expect(described_module().pad_block('hello', 10)) |> to(eq 'hello' ++ [0x05, 0x05, 0x05, 0x05, 0x05])
     end
   end
 end
